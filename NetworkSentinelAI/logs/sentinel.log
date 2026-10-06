@@ -1,0 +1,329 @@
+[2026-08-19 19:27:05] [INFO    ] utils.helpers: Logging đã cấu hình: level=INFO, file=logs/sentinel.log
+[2026-08-19 19:27:05] [INFO    ] config.configLoader: Đã load config từ: D:\CSN340\NetworkSentinelAI\config\config.yaml
+[2026-08-19 19:27:05] [INFO    ] __main__: Khởi tạo NetworkSentinelAI components...
+[2026-08-19 19:27:05] [INFO    ] detection.ruleEngine: RuleEngine khởi tạo với 4 rules: ['SynFloodDetection', 'AckFloodDetection', 'PortScanDetection', 'ICMPTunnelDetection']
+[2026-08-19 19:27:05] [INFO    ] storage.logger: Logger khởi tạo với 2 formatter(s): ['CSVFormatter', 'JSONFormatter']
+[2026-08-19 19:27:05] [INFO    ] storage.csvFormatter: CSVFormatter sẵn sàng: logs/alerts.csv
+[2026-08-19 19:27:05] [INFO    ] storage.jsonFormatter: JSONFormatter sẵn sàng: logs/alerts.json
+[2026-08-19 19:27:05] [INFO    ] ai_security.securityAnalyzer: SecurityAnalyzer khởi tạo: model=llama2, threshold=0.85
+[2026-08-19 19:27:05] [INFO    ] notification.notificationManager: NotificationManager: Không có channel nào được bật (cấu hình trong config.yaml)
+[2026-08-19 19:27:05] [INFO    ] __main__: Tất cả components đã được khởi tạo thành công!
+[2026-08-19 19:27:05] [INFO    ] __main__: ============================================================
+[2026-08-19 19:27:05] [INFO    ] __main__:   🛡️  NetworkSentinelAI – Hệ thống IDS đang khởi động  🛡️
+[2026-08-19 19:27:05] [INFO    ] __main__: ============================================================
+[2026-08-19 19:27:05] [INFO    ] __main__:   Thời gian bắt đầu: 2026-08-19 19:27:05
+[2026-08-19 19:27:05] [INFO    ] __main__:   Cửa sổ phân tích: 10 giây
+[2026-08-19 19:27:05] [INFO    ] __main__:   Interface: eth0
+[2026-08-19 19:27:05] [INFO    ] __main__:   BPF Filter: ip
+[2026-08-19 19:27:05] [INFO    ] __main__: ============================================================
+[2026-08-19 19:27:05] [INFO    ] __main__: 🧪 Chạy chế độ DRY RUN (giả lập dữ liệu)...
+[2026-08-19 19:27:05] [INFO    ] __main__: Giả lập 269 gói tin...
+[2026-08-19 19:27:05] [INFO    ] __main__: ─── Cửa sổ #1 ───────────────────────────
+    Gói tin: 269 | Thời gian: 9.9s | Traffic: 15.74 KB
+[2026-08-19 19:27:05] [WARNING ] detection.ruleEngine: [SynFloodDetection] Phát hiện 1 alert(s) trong window 2026-08-19 19:27:05.442182 → 2026-08-19 19:27:15.342182
+[2026-08-19 19:27:05] [WARNING ] detection.ruleEngine: [PortScanDetection] Phát hiện 1 alert(s) trong window 2026-08-19 19:27:05.442182 → 2026-08-19 19:27:15.342182
+[2026-08-19 19:27:05] [INFO    ] detection.ruleEngine: RuleEngine: Tổng cộng 2 alert(s) trong window này
+[2026-08-19 19:27:05] [INFO    ] alert_management.alertManager: Alert mới: [CRITICAL] SYN Flood từ 192.168.100.5
+[2026-08-19 19:27:05] [INFO    ] alert_management.alertManager: Alert mới: [MEDIUM] Port Scan từ 10.20.30.40
+[2026-08-19 19:27:05] [INFO    ] __main__:     📁 Đã ghi 2 alert(s) vào log
+[2026-08-19 19:27:05] [WARNING ] __main__: [CRITICAL ALERT #1] SYN Flood detected from 192.168.100.5 to 10.0.0.1 (Rule: SynFloodDetection) | Confidence: 0.95 | Detected at: 2026-08-19 19:27:15
+[2026-08-19 19:27:05] [WARNING ] __main__: [MEDIUM ALERT #2] Port Scan detected from 10.20.30.40 to 192.168.1.1 (Rule: PortScanDetection) | Confidence: 0.99 | Detected at: 2026-08-19 19:27:15
+[2026-08-19 19:27:05] [INFO    ] __main__: DRY RUN hoàn tất.
+[2026-08-19 19:27:05] [INFO    ] __main__: 
+============================================================
+[2026-08-19 19:27:05] [INFO    ] __main__:   🔒 NetworkSentinelAI đang dừng...
+[2026-08-19 19:27:05] [INFO    ] __main__: ============================================================
+[2026-08-19 19:27:05] [INFO    ] __main__: Xử lý cửa sổ traffic cuối...
+[2026-08-19 19:27:05] [INFO    ] __main__: ─── Cửa sổ #1 ───────────────────────────
+    Gói tin: 269 | Thời gian: 9.9s | Traffic: 15.74 KB
+[2026-08-19 19:27:05] [WARNING ] detection.ruleEngine: [SynFloodDetection] Phát hiện 1 alert(s) trong window 2026-08-19 19:27:05.442182 → 2026-08-19 19:27:15.342182
+[2026-08-19 19:27:05] [WARNING ] detection.ruleEngine: [PortScanDetection] Phát hiện 1 alert(s) trong window 2026-08-19 19:27:05.442182 → 2026-08-19 19:27:15.342182
+[2026-08-19 19:27:05] [INFO    ] detection.ruleEngine: RuleEngine: Tổng cộng 2 alert(s) trong window này
+[2026-08-19 19:27:05] [INFO    ] alert_management.alertManager: Alert mới: [CRITICAL] SYN Flood từ 192.168.100.5
+[2026-08-19 19:27:05] [INFO    ] alert_management.alertManager: Alert mới: [MEDIUM] Port Scan từ 10.20.30.40
+[2026-08-19 19:27:05] [INFO    ] __main__:     📁 Đã ghi 2 alert(s) vào log
+[2026-08-19 19:27:05] [WARNING ] __main__: [CRITICAL ALERT #3] SYN Flood detected from 192.168.100.5 to 10.0.0.1 (Rule: SynFloodDetection) | Confidence: 0.95 | Detected at: 2026-08-19 19:27:15
+[2026-08-19 19:27:05] [WARNING ] __main__: [MEDIUM ALERT #4] Port Scan detected from 10.20.30.40 to 192.168.1.1 (Rule: PortScanDetection) | Confidence: 0.99 | Detected at: 2026-08-19 19:27:15
+[2026-08-19 19:27:05] [INFO    ] __main__: Đợi AI analysis hoàn tất...
+[2026-08-19 19:27:09] [WARNING ] ai_security.securityAnalyzer: AI không khả dụng. SecurityAnalyzer sẽ bỏ qua cho session này.
+[2026-08-19 19:27:09] [WARNING ] ai_security.securityAnalyzer: AI không khả dụng. SecurityAnalyzer sẽ bỏ qua cho session này.
+[2026-08-19 19:27:09] [INFO    ] report.reportExporter: TXT report: reports\rpt-20260819-192709-0B6E7E.txt
+[2026-08-19 19:27:09] [INFO    ] report.reportExporter: HTML report: reports\rpt-20260819-192709-0B6E7E.html
+[2026-08-19 19:27:09] [INFO    ] report.reportExporter: PDF report: reports\rpt-20260819-192709-0B6E7E.pdf
+[2026-08-19 19:27:09] [INFO    ] __main__: 📄 Báo cáo TXT: reports\rpt-20260819-192709-0B6E7E.txt
+[2026-08-19 19:27:09] [INFO    ] __main__: 📄 Báo cáo HTML: reports\rpt-20260819-192709-0B6E7E.html
+[2026-08-19 19:27:09] [INFO    ] __main__: 📄 Báo cáo PDF: reports\rpt-20260819-192709-0B6E7E.pdf
+[2026-08-19 19:27:09] [INFO    ] storage.csvFormatter: CSVFormatter: Đã đóng file
+[2026-08-19 19:27:09] [INFO    ] storage.jsonFormatter: JSONFormatter: Đã đóng file
+[2026-08-19 19:27:09] [INFO    ] storage.logger: Logger: Đã đóng tất cả formatter
+[2026-08-19 19:27:09] [INFO    ] __main__: ────────────────────────────────────────────────────────────
+[2026-08-19 19:27:09] [INFO    ] __main__:   📊 THỐNG KÊ PHIÊN LÀM VIỆC
+[2026-08-19 19:27:09] [INFO    ] __main__: ────────────────────────────────────────────────────────────
+[2026-08-19 19:27:09] [INFO    ] __main__:   Tổng thời gian chạy  : 4.4s
+[2026-08-19 19:27:09] [INFO    ] __main__:   Tổng gói tin xử lý   : 269
+[2026-08-19 19:27:09] [INFO    ] __main__:   Cửa sổ phân tích     : 1
+[2026-08-19 19:27:09] [INFO    ] __main__:   Tổng alert phát hiện : 4
+[2026-08-19 19:27:09] [INFO    ] __main__:   Critical alerts      : 2
+[2026-08-19 19:27:09] [INFO    ] __main__:   High alerts          : 0
+[2026-08-19 19:27:09] [INFO    ] __main__: ────────────────────────────────────────────────────────────
+[2026-08-19 19:38:04] [INFO    ] utils.helpers: Logging đã cấu hình: level=INFO, file=logs/sentinel.log
+[2026-08-19 19:38:04] [INFO    ] config.configLoader: Đã load config từ: D:\CSN340\NetworkSentinelAI\config\config.yaml
+[2026-08-19 19:38:04] [INFO    ] __main__: Khởi tạo NetworkSentinelAI components...
+[2026-08-19 19:38:04] [INFO    ] detection.ruleEngine: RuleEngine khởi tạo với 4 rules: ['SynFloodDetection', 'AckFloodDetection', 'PortScanDetection', 'ICMPTunnelDetection']
+[2026-08-19 19:38:04] [INFO    ] storage.logger: Logger khởi tạo với 2 formatter(s): ['CSVFormatter', 'JSONFormatter']
+[2026-08-19 19:38:04] [INFO    ] storage.csvFormatter: CSVFormatter sẵn sàng: logs/alerts.csv
+[2026-08-19 19:38:04] [INFO    ] storage.jsonFormatter: JSONFormatter sẵn sàng: logs/alerts.json
+[2026-08-19 19:38:04] [INFO    ] ai_security.securityAnalyzer: SecurityAnalyzer khởi tạo: model=llama2, threshold=0.85
+[2026-08-19 19:38:04] [INFO    ] notification.notificationManager: NotificationManager: Không có channel nào được bật (cấu hình trong config.yaml)
+[2026-08-19 19:38:04] [INFO    ] __main__: Tất cả components đã được khởi tạo thành công!
+[2026-08-19 19:38:04] [INFO    ] __main__: ============================================================
+[2026-08-19 19:38:04] [INFO    ] __main__:   🛡️  NetworkSentinelAI – Hệ thống IDS đang khởi động  🛡️
+[2026-08-19 19:38:04] [INFO    ] __main__: ============================================================
+[2026-08-19 19:38:04] [INFO    ] __main__:   Thời gian bắt đầu: 2026-08-19 19:38:04
+[2026-08-19 19:38:04] [INFO    ] __main__:   Cửa sổ phân tích: 10 giây
+[2026-08-19 19:38:04] [INFO    ] __main__:   Interface: eth0
+[2026-08-19 19:38:04] [INFO    ] __main__:   BPF Filter: ip
+[2026-08-19 19:38:04] [INFO    ] __main__: ============================================================
+[2026-08-19 19:38:04] [INFO    ] __main__: 📂 Đọc file pcap: path/to/capture.pcap
+[2026-08-19 19:38:05] [INFO    ] capture.packetCapture: Đọc gói tin từ file: path/to/capture.pcap
+[2026-08-19 19:38:05] [INFO    ] capture.packetCapture: Đọc file capture hoàn tất.
+[2026-08-19 19:38:05] [ERROR   ] __main__: Lỗi nghiêm trọng: [Errno 2] No such file or directory: path\to\capture.pcap
+Traceback (most recent call last):
+  File "D:\CSN340\NetworkSentinelAI\src\main.py", line 294, in start
+    self._runFileCapture(pcap_file)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "D:\CSN340\NetworkSentinelAI\src\main.py", line 321, in _runFileCapture
+    capture.startFileCapture(pcap_file=pcap_file, callback=self.handlePacket)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSN340\NetworkSentinelAI\src\capture\packetCapture.py", line 116, in startFileCapture
+    cap = pyshark.FileCapture(pcap_file, display_filter=self.bpfFilter)
+  File "D:\CSN340\NetworkSentinelAI\venv\Lib\site-packages\pyshark\capture\file_capture.py", line 47, in __init__
+    raise FileNotFoundError(f"[Errno 2] No such file or directory: {self.input_filepath}")
+FileNotFoundError: [Errno 2] No such file or directory: path\to\capture.pcap
+[2026-08-19 19:38:05] [INFO    ] __main__: 
+============================================================
+[2026-08-19 19:38:05] [INFO    ] __main__:   🔒 NetworkSentinelAI đang dừng...
+[2026-08-19 19:38:05] [INFO    ] __main__: ============================================================
+[2026-08-19 19:38:05] [INFO    ] __main__: Đợi AI analysis hoàn tất...
+[2026-08-19 19:38:05] [INFO    ] __main__: Không có alert nào → bỏ qua tạo báo cáo
+[2026-08-19 19:38:05] [INFO    ] storage.csvFormatter: CSVFormatter: Đã đóng file
+[2026-08-19 19:38:05] [INFO    ] storage.jsonFormatter: JSONFormatter: Đã đóng file
+[2026-08-19 19:38:05] [INFO    ] storage.logger: Logger: Đã đóng tất cả formatter
+[2026-08-19 19:38:05] [INFO    ] __main__: ────────────────────────────────────────────────────────────
+[2026-08-19 19:38:05] [INFO    ] __main__:   📊 THỐNG KÊ PHIÊN LÀM VIỆC
+[2026-08-19 19:38:05] [INFO    ] __main__: ────────────────────────────────────────────────────────────
+[2026-08-19 19:38:05] [INFO    ] __main__:   Tổng thời gian chạy  : 0.3s
+[2026-08-19 19:38:05] [INFO    ] __main__:   Tổng gói tin xử lý   : 0
+[2026-08-19 19:38:05] [INFO    ] __main__:   Cửa sổ phân tích     : 0
+[2026-08-19 19:38:05] [INFO    ] __main__:   Tổng alert phát hiện : 0
+[2026-08-19 19:38:05] [INFO    ] __main__:   Critical alerts      : 0
+[2026-08-19 19:38:05] [INFO    ] __main__:   High alerts          : 0
+[2026-08-19 19:38:05] [INFO    ] __main__: ────────────────────────────────────────────────────────────
+[2026-08-19 19:44:55] [INFO    ] utils.helpers: Logging đã cấu hình: level=INFO, file=logs/sentinel.log
+[2026-08-19 19:44:55] [INFO    ] config.configLoader: Đã load config từ: D:\CSN340\NetworkSentinelAI\config\config.yaml
+[2026-08-19 19:44:55] [INFO    ] __main__: Khởi tạo NetworkSentinelAI components...
+[2026-08-19 19:44:55] [INFO    ] detection.ruleEngine: RuleEngine khởi tạo với 4 rules: ['SynFloodDetection', 'AckFloodDetection', 'PortScanDetection', 'ICMPTunnelDetection']
+[2026-08-19 19:44:55] [INFO    ] storage.logger: Logger khởi tạo với 2 formatter(s): ['CSVFormatter', 'JSONFormatter']
+[2026-08-19 19:44:55] [INFO    ] storage.csvFormatter: CSVFormatter sẵn sàng: logs/alerts.csv
+[2026-08-19 19:44:55] [INFO    ] storage.jsonFormatter: JSONFormatter sẵn sàng: logs/alerts.json
+[2026-08-19 19:44:55] [INFO    ] ai_security.securityAnalyzer: SecurityAnalyzer khởi tạo: model=llama2, threshold=0.85
+[2026-08-19 19:44:55] [INFO    ] notification.notificationManager: NotificationManager: Không có channel nào được bật (cấu hình trong config.yaml)
+[2026-08-19 19:44:55] [INFO    ] __main__: Tất cả components đã được khởi tạo thành công!
+[2026-08-19 19:44:55] [INFO    ] __main__: ============================================================
+[2026-08-19 19:44:55] [INFO    ] __main__:   🛡️  NetworkSentinelAI – Hệ thống IDS đang khởi động  🛡️
+[2026-08-19 19:44:55] [INFO    ] __main__: ============================================================
+[2026-08-19 19:44:55] [INFO    ] __main__:   Thời gian bắt đầu: 2026-08-19 19:44:55
+[2026-08-19 19:44:55] [INFO    ] __main__:   Cửa sổ phân tích: 10 giây
+[2026-08-19 19:44:55] [INFO    ] __main__:   Interface: WiFi
+[2026-08-19 19:44:55] [INFO    ] __main__:   BPF Filter: ip
+[2026-08-19 19:44:55] [INFO    ] __main__: ============================================================
+[2026-08-19 19:44:55] [INFO    ] __main__: 🧪 Chạy chế độ DRY RUN (giả lập dữ liệu)...
+[2026-08-19 19:44:55] [INFO    ] __main__: Giả lập 269 gói tin...
+[2026-08-19 19:44:55] [INFO    ] __main__: ─── Cửa sổ #1 ───────────────────────────
+    Gói tin: 269 | Thời gian: 9.9s | Traffic: 15.74 KB
+[2026-08-19 19:44:55] [WARNING ] detection.ruleEngine: [SynFloodDetection] Phát hiện 1 alert(s) trong window 2026-08-19 19:44:55.209613 → 2026-08-19 19:45:05.109613
+[2026-08-19 19:44:55] [WARNING ] detection.ruleEngine: [PortScanDetection] Phát hiện 1 alert(s) trong window 2026-08-19 19:44:55.209613 → 2026-08-19 19:45:05.109613
+[2026-08-19 19:44:55] [INFO    ] detection.ruleEngine: RuleEngine: Tổng cộng 2 alert(s) trong window này
+[2026-08-19 19:44:55] [INFO    ] alert_management.alertManager: Alert mới: [CRITICAL] SYN Flood từ 192.168.100.5
+[2026-08-19 19:44:55] [INFO    ] alert_management.alertManager: Alert mới: [MEDIUM] Port Scan từ 10.20.30.40
+[2026-08-19 19:44:55] [INFO    ] __main__:     📁 Đã ghi 2 alert(s) vào log
+[2026-08-19 19:44:55] [WARNING ] __main__: [CRITICAL ALERT #1] SYN Flood detected from 192.168.100.5 to 10.0.0.1 (Rule: SynFloodDetection) | Confidence: 0.95 | Detected at: 2026-08-19 19:45:05
+[2026-08-19 19:44:55] [WARNING ] __main__: [MEDIUM ALERT #2] Port Scan detected from 10.20.30.40 to 192.168.1.1 (Rule: PortScanDetection) | Confidence: 0.99 | Detected at: 2026-08-19 19:45:05
+[2026-08-19 19:44:55] [INFO    ] __main__: DRY RUN hoàn tất.
+[2026-08-19 19:44:55] [INFO    ] __main__: 
+============================================================
+[2026-08-19 19:44:55] [INFO    ] __main__:   🔒 NetworkSentinelAI đang dừng...
+[2026-08-19 19:44:55] [INFO    ] __main__: ============================================================
+[2026-08-19 19:44:55] [INFO    ] __main__: Xử lý cửa sổ traffic cuối...
+[2026-08-19 19:44:55] [INFO    ] __main__: ─── Cửa sổ #1 ───────────────────────────
+    Gói tin: 269 | Thời gian: 9.9s | Traffic: 15.74 KB
+[2026-08-19 19:44:55] [WARNING ] detection.ruleEngine: [SynFloodDetection] Phát hiện 1 alert(s) trong window 2026-08-19 19:44:55.209613 → 2026-08-19 19:45:05.109613
+[2026-08-19 19:44:55] [WARNING ] detection.ruleEngine: [PortScanDetection] Phát hiện 1 alert(s) trong window 2026-08-19 19:44:55.209613 → 2026-08-19 19:45:05.109613
+[2026-08-19 19:44:55] [INFO    ] detection.ruleEngine: RuleEngine: Tổng cộng 2 alert(s) trong window này
+[2026-08-19 19:44:55] [INFO    ] alert_management.alertManager: Alert mới: [CRITICAL] SYN Flood từ 192.168.100.5
+[2026-08-19 19:44:55] [INFO    ] alert_management.alertManager: Alert mới: [MEDIUM] Port Scan từ 10.20.30.40
+[2026-08-19 19:44:55] [INFO    ] __main__:     📁 Đã ghi 2 alert(s) vào log
+[2026-08-19 19:44:55] [WARNING ] __main__: [CRITICAL ALERT #3] SYN Flood detected from 192.168.100.5 to 10.0.0.1 (Rule: SynFloodDetection) | Confidence: 0.95 | Detected at: 2026-08-19 19:45:05
+[2026-08-19 19:44:55] [WARNING ] __main__: [MEDIUM ALERT #4] Port Scan detected from 10.20.30.40 to 192.168.1.1 (Rule: PortScanDetection) | Confidence: 0.99 | Detected at: 2026-08-19 19:45:05
+[2026-08-19 19:44:55] [INFO    ] __main__: Đợi AI analysis hoàn tất...
+[2026-08-19 19:44:59] [WARNING ] ai_security.securityAnalyzer: AI không khả dụng. SecurityAnalyzer sẽ bỏ qua cho session này.
+[2026-08-19 19:44:59] [WARNING ] ai_security.securityAnalyzer: AI không khả dụng. SecurityAnalyzer sẽ bỏ qua cho session này.
+[2026-08-19 19:44:59] [INFO    ] report.reportExporter: TXT report: reports\rpt-20260819-194459-86F210.txt
+[2026-08-19 19:44:59] [INFO    ] report.reportExporter: HTML report: reports\rpt-20260819-194459-86F210.html
+[2026-08-19 19:44:59] [INFO    ] report.reportExporter: PDF report: reports\rpt-20260819-194459-86F210.pdf
+[2026-08-19 19:44:59] [INFO    ] __main__: 📄 Báo cáo TXT: reports\rpt-20260819-194459-86F210.txt
+[2026-08-19 19:44:59] [INFO    ] __main__: 📄 Báo cáo HTML: reports\rpt-20260819-194459-86F210.html
+[2026-08-19 19:44:59] [INFO    ] __main__: 📄 Báo cáo PDF: reports\rpt-20260819-194459-86F210.pdf
+[2026-08-19 19:44:59] [INFO    ] storage.csvFormatter: CSVFormatter: Đã đóng file
+[2026-08-19 19:44:59] [INFO    ] storage.jsonFormatter: JSONFormatter: Đã đóng file
+[2026-08-19 19:44:59] [INFO    ] storage.logger: Logger: Đã đóng tất cả formatter
+[2026-08-19 19:44:59] [INFO    ] __main__: ────────────────────────────────────────────────────────────
+[2026-08-19 19:44:59] [INFO    ] __main__:   📊 THỐNG KÊ PHIÊN LÀM VIỆC
+[2026-08-19 19:44:59] [INFO    ] __main__: ────────────────────────────────────────────────────────────
+[2026-08-19 19:44:59] [INFO    ] __main__:   Tổng thời gian chạy  : 4.4s
+[2026-08-19 19:44:59] [INFO    ] __main__:   Tổng gói tin xử lý   : 269
+[2026-08-19 19:44:59] [INFO    ] __main__:   Cửa sổ phân tích     : 1
+[2026-08-19 19:44:59] [INFO    ] __main__:   Tổng alert phát hiện : 4
+[2026-08-19 19:44:59] [INFO    ] __main__:   Critical alerts      : 2
+[2026-08-19 19:44:59] [INFO    ] __main__:   High alerts          : 0
+[2026-08-19 19:44:59] [INFO    ] __main__: ────────────────────────────────────────────────────────────
+[2026-08-19 21:26:30] [INFO    ] utils.helpers: Logging đã cấu hình: level=INFO, file=logs/sentinel.log
+[2026-08-19 21:26:30] [INFO    ] config.configLoader: Đã load config từ: D:\CSN340\NetworkSentinelAI\config\config.yaml
+[2026-08-19 21:26:30] [INFO    ] __main__: Khởi tạo NetworkSentinelAI components...
+[2026-08-19 21:26:30] [INFO    ] detection.ruleEngine: RuleEngine khởi tạo với 4 rules: ['SynFloodDetection', 'AckFloodDetection', 'PortScanDetection', 'ICMPTunnelDetection']
+[2026-08-19 21:26:30] [INFO    ] storage.logger: Logger khởi tạo với 2 formatter(s): ['CSVFormatter', 'JSONFormatter']
+[2026-08-19 21:26:30] [INFO    ] storage.csvFormatter: CSVFormatter sẵn sàng: logs/alerts.csv
+[2026-08-19 21:26:30] [INFO    ] storage.jsonFormatter: JSONFormatter sẵn sàng: logs/alerts.json
+[2026-08-19 21:26:30] [INFO    ] ai_security.securityAnalyzer: SecurityAnalyzer khởi tạo: model=llama2, threshold=0.85
+[2026-08-19 21:26:30] [INFO    ] notification.notificationManager: NotificationManager: Email channel đã bật
+[2026-08-19 21:26:30] [INFO    ] __main__: Tất cả components đã được khởi tạo thành công!
+[2026-08-19 21:26:30] [INFO    ] __main__: ============================================================
+[2026-08-19 21:26:30] [INFO    ] __main__:   🛡️  NetworkSentinelAI – Hệ thống IDS đang khởi động  🛡️
+[2026-08-19 21:26:30] [INFO    ] __main__: ============================================================
+[2026-08-19 21:26:30] [INFO    ] __main__:   Thời gian bắt đầu: 2026-08-19 21:26:30
+[2026-08-19 21:26:30] [INFO    ] __main__:   Cửa sổ phân tích: 10 giây
+[2026-08-19 21:26:30] [INFO    ] __main__:   Interface: WiFi
+[2026-08-19 21:26:30] [INFO    ] __main__:   BPF Filter: ip
+[2026-08-19 21:26:30] [INFO    ] __main__: ============================================================
+[2026-08-19 21:26:30] [INFO    ] __main__: 🧪 Chạy chế độ DRY RUN (giả lập dữ liệu)...
+[2026-08-19 21:26:30] [INFO    ] __main__: Giả lập 269 gói tin...
+[2026-08-19 21:26:30] [INFO    ] __main__: ─── Cửa sổ #1 ───────────────────────────
+    Gói tin: 269 | Thời gian: 9.9s | Traffic: 15.74 KB
+[2026-08-19 21:26:30] [WARNING ] detection.ruleEngine: [SynFloodDetection] Phát hiện 1 alert(s) trong window 2026-08-19 21:26:30.897228 → 2026-08-19 21:26:40.797228
+[2026-08-19 21:26:30] [WARNING ] detection.ruleEngine: [PortScanDetection] Phát hiện 1 alert(s) trong window 2026-08-19 21:26:30.897228 → 2026-08-19 21:26:40.797228
+[2026-08-19 21:26:30] [INFO    ] detection.ruleEngine: RuleEngine: Tổng cộng 2 alert(s) trong window này
+[2026-08-19 21:26:30] [INFO    ] alert_management.alertManager: Alert mới: [CRITICAL] SYN Flood từ 192.168.100.5
+[2026-08-19 21:26:30] [INFO    ] alert_management.alertManager: Alert mới: [MEDIUM] Port Scan từ 10.20.30.40
+[2026-08-19 21:26:30] [INFO    ] __main__:     📁 Đã ghi 2 alert(s) vào log
+[2026-08-19 21:26:30] [WARNING ] __main__: [CRITICAL ALERT #1] SYN Flood detected from 192.168.100.5 to 10.0.0.1 (Rule: SynFloodDetection) | Confidence: 0.95 | Detected at: 2026-08-19 21:26:40
+[2026-08-19 21:26:30] [WARNING ] __main__: [MEDIUM ALERT #2] Port Scan detected from 10.20.30.40 to 192.168.1.1 (Rule: PortScanDetection) | Confidence: 0.99 | Detected at: 2026-08-19 21:26:40
+[2026-08-19 21:26:30] [INFO    ] __main__: DRY RUN hoàn tất.
+[2026-08-19 21:26:30] [INFO    ] __main__: 
+============================================================
+[2026-08-19 21:26:30] [INFO    ] __main__:   🔒 NetworkSentinelAI đang dừng...
+[2026-08-19 21:26:30] [INFO    ] __main__: ============================================================
+[2026-08-19 21:26:30] [INFO    ] __main__: Xử lý cửa sổ traffic cuối...
+[2026-08-19 21:26:30] [INFO    ] __main__: ─── Cửa sổ #1 ───────────────────────────
+    Gói tin: 269 | Thời gian: 9.9s | Traffic: 15.74 KB
+[2026-08-19 21:26:30] [WARNING ] detection.ruleEngine: [SynFloodDetection] Phát hiện 1 alert(s) trong window 2026-08-19 21:26:30.897228 → 2026-08-19 21:26:40.797228
+[2026-08-19 21:26:30] [WARNING ] detection.ruleEngine: [PortScanDetection] Phát hiện 1 alert(s) trong window 2026-08-19 21:26:30.897228 → 2026-08-19 21:26:40.797228
+[2026-08-19 21:26:30] [INFO    ] detection.ruleEngine: RuleEngine: Tổng cộng 2 alert(s) trong window này
+[2026-08-19 21:26:30] [INFO    ] alert_management.alertManager: Alert mới: [CRITICAL] SYN Flood từ 192.168.100.5
+[2026-08-19 21:26:30] [INFO    ] alert_management.alertManager: Alert mới: [MEDIUM] Port Scan từ 10.20.30.40
+[2026-08-19 21:26:30] [INFO    ] __main__:     📁 Đã ghi 2 alert(s) vào log
+[2026-08-19 21:26:30] [WARNING ] __main__: [CRITICAL ALERT #3] SYN Flood detected from 192.168.100.5 to 10.0.0.1 (Rule: SynFloodDetection) | Confidence: 0.95 | Detected at: 2026-08-19 21:26:40
+[2026-08-19 21:26:30] [WARNING ] __main__: [MEDIUM ALERT #4] Port Scan detected from 10.20.30.40 to 192.168.1.1 (Rule: PortScanDetection) | Confidence: 0.99 | Detected at: 2026-08-19 21:26:40
+[2026-08-19 21:26:30] [INFO    ] __main__: Đợi AI analysis và các thông báo hoàn tất...
+[2026-08-19 21:26:34] [WARNING ] ai_security.securityAnalyzer: AI không khả dụng. SecurityAnalyzer sẽ bỏ qua cho session này.
+[2026-08-19 21:26:34] [WARNING ] ai_security.securityAnalyzer: AI không khả dụng. SecurityAnalyzer sẽ bỏ qua cho session này.
+[2026-08-19 21:26:42] [INFO    ] notification.emailChannel: Email: Gửi alert #3 đến thanhtucit260325@gmail.com thành công
+[2026-08-19 21:26:43] [INFO    ] notification.emailChannel: Email: Gửi alert #1 đến thanhtucit260325@gmail.com thành công
+[2026-08-19 21:26:43] [INFO    ] report.reportExporter: TXT report: reports\rpt-20260819-212643-BE019E.txt
+[2026-08-19 21:26:43] [INFO    ] report.reportExporter: HTML report: reports\rpt-20260819-212643-BE019E.html
+[2026-08-19 21:26:43] [INFO    ] report.reportExporter: PDF report: reports\rpt-20260819-212643-BE019E.pdf
+[2026-08-19 21:26:43] [INFO    ] __main__: 📄 Báo cáo TXT: reports\rpt-20260819-212643-BE019E.txt
+[2026-08-19 21:26:43] [INFO    ] __main__: 📄 Báo cáo HTML: reports\rpt-20260819-212643-BE019E.html
+[2026-08-19 21:26:43] [INFO    ] __main__: 📄 Báo cáo PDF: reports\rpt-20260819-212643-BE019E.pdf
+[2026-08-19 21:26:43] [INFO    ] storage.csvFormatter: CSVFormatter: Đã đóng file
+[2026-08-19 21:26:43] [INFO    ] storage.jsonFormatter: JSONFormatter: Đã đóng file
+[2026-08-19 21:26:43] [INFO    ] storage.logger: Logger: Đã đóng tất cả formatter
+[2026-08-19 21:26:43] [INFO    ] __main__: ────────────────────────────────────────────────────────────
+[2026-08-19 21:26:43] [INFO    ] __main__:   📊 THỐNG KÊ PHIÊN LÀM VIỆC
+[2026-08-19 21:26:43] [INFO    ] __main__: ────────────────────────────────────────────────────────────
+[2026-08-19 21:26:43] [INFO    ] __main__:   Tổng thời gian chạy  : 12.4s
+[2026-08-19 21:26:43] [INFO    ] __main__:   Tổng gói tin xử lý   : 269
+[2026-08-19 21:26:43] [INFO    ] __main__:   Cửa sổ phân tích     : 1
+[2026-08-19 21:26:43] [INFO    ] __main__:   Tổng alert phát hiện : 4
+[2026-08-19 21:26:43] [INFO    ] __main__:   Critical alerts      : 2
+[2026-08-19 21:26:43] [INFO    ] __main__:   High alerts          : 0
+[2026-08-19 21:26:43] [INFO    ] __main__: ────────────────────────────────────────────────────────────
+[2026-08-19 21:28:44] [INFO    ] utils.helpers: Logging đã cấu hình: level=INFO, file=logs/sentinel.log
+[2026-08-19 21:28:44] [INFO    ] config.configLoader: Đã load config từ: D:\CSN340\NetworkSentinelAI\config\config.yaml
+[2026-08-19 21:28:44] [INFO    ] __main__: Khởi tạo NetworkSentinelAI components...
+[2026-08-19 21:28:44] [INFO    ] detection.ruleEngine: RuleEngine khởi tạo với 4 rules: ['SynFloodDetection', 'AckFloodDetection', 'PortScanDetection', 'ICMPTunnelDetection']
+[2026-08-19 21:28:44] [INFO    ] storage.logger: Logger khởi tạo với 2 formatter(s): ['CSVFormatter', 'JSONFormatter']
+[2026-08-19 21:28:44] [INFO    ] storage.csvFormatter: CSVFormatter sẵn sàng: logs/alerts.csv
+[2026-08-19 21:28:44] [INFO    ] storage.jsonFormatter: JSONFormatter sẵn sàng: logs/alerts.json
+[2026-08-19 21:28:44] [INFO    ] ai_security.securityAnalyzer: SecurityAnalyzer khởi tạo: model=llama2, threshold=0.85
+[2026-08-19 21:28:44] [INFO    ] notification.notificationManager: NotificationManager: Email channel đã bật
+[2026-08-19 21:28:44] [INFO    ] __main__: Tất cả components đã được khởi tạo thành công!
+[2026-08-19 21:28:44] [INFO    ] __main__: ============================================================
+[2026-08-19 21:28:44] [INFO    ] __main__:   🛡️  NetworkSentinelAI – Hệ thống IDS đang khởi động  🛡️
+[2026-08-19 21:28:44] [INFO    ] __main__: ============================================================
+[2026-08-19 21:28:44] [INFO    ] __main__:   Thời gian bắt đầu: 2026-08-19 21:28:44
+[2026-08-19 21:28:44] [INFO    ] __main__:   Cửa sổ phân tích: 10 giây
+[2026-08-19 21:28:44] [INFO    ] __main__:   Interface: WiFi
+[2026-08-19 21:28:44] [INFO    ] __main__:   BPF Filter: ip
+[2026-08-19 21:28:44] [INFO    ] __main__: ============================================================
+[2026-08-19 21:28:44] [INFO    ] __main__: 🧪 Chạy chế độ DRY RUN (giả lập dữ liệu)...
+[2026-08-19 21:28:44] [INFO    ] __main__: Giả lập 269 gói tin...
+[2026-08-19 21:28:44] [INFO    ] __main__: ─── Cửa sổ #1 ───────────────────────────
+    Gói tin: 269 | Thời gian: 9.9s | Traffic: 15.74 KB
+[2026-08-19 21:28:44] [WARNING ] detection.ruleEngine: [SynFloodDetection] Phát hiện 1 alert(s) trong window 2026-08-19 21:28:44.296543 → 2026-08-19 21:28:54.196543
+[2026-08-19 21:28:44] [WARNING ] detection.ruleEngine: [PortScanDetection] Phát hiện 1 alert(s) trong window 2026-08-19 21:28:44.296543 → 2026-08-19 21:28:54.196543
+[2026-08-19 21:28:44] [INFO    ] detection.ruleEngine: RuleEngine: Tổng cộng 2 alert(s) trong window này
+[2026-08-19 21:28:44] [INFO    ] alert_management.alertManager: Alert mới: [CRITICAL] SYN Flood từ 192.168.100.5
+[2026-08-19 21:28:44] [INFO    ] alert_management.alertManager: Alert mới: [MEDIUM] Port Scan từ 10.20.30.40
+[2026-08-19 21:28:44] [INFO    ] __main__:     📁 Đã ghi 2 alert(s) vào log
+[2026-08-19 21:28:44] [WARNING ] __main__: [CRITICAL ALERT #1] SYN Flood detected from 192.168.100.5 to 10.0.0.1 (Rule: SynFloodDetection) | Confidence: 0.95 | Detected at: 2026-08-19 21:28:54
+[2026-08-19 21:28:44] [WARNING ] __main__: [MEDIUM ALERT #2] Port Scan detected from 10.20.30.40 to 192.168.1.1 (Rule: PortScanDetection) | Confidence: 0.99 | Detected at: 2026-08-19 21:28:54
+[2026-08-19 21:28:44] [INFO    ] __main__: DRY RUN hoàn tất.
+[2026-08-19 21:28:44] [INFO    ] __main__: 
+============================================================
+[2026-08-19 21:28:44] [INFO    ] __main__:   🔒 NetworkSentinelAI đang dừng...
+[2026-08-19 21:28:44] [INFO    ] __main__: ============================================================
+[2026-08-19 21:28:44] [INFO    ] __main__: Xử lý cửa sổ traffic cuối...
+[2026-08-19 21:28:44] [INFO    ] __main__: ─── Cửa sổ #1 ───────────────────────────
+    Gói tin: 269 | Thời gian: 9.9s | Traffic: 15.74 KB
+[2026-08-19 21:28:44] [WARNING ] detection.ruleEngine: [SynFloodDetection] Phát hiện 1 alert(s) trong window 2026-08-19 21:28:44.296543 → 2026-08-19 21:28:54.196543
+[2026-08-19 21:28:44] [WARNING ] detection.ruleEngine: [PortScanDetection] Phát hiện 1 alert(s) trong window 2026-08-19 21:28:44.296543 → 2026-08-19 21:28:54.196543
+[2026-08-19 21:28:44] [INFO    ] detection.ruleEngine: RuleEngine: Tổng cộng 2 alert(s) trong window này
+[2026-08-19 21:28:44] [INFO    ] alert_management.alertManager: Alert mới: [CRITICAL] SYN Flood từ 192.168.100.5
+[2026-08-19 21:28:44] [INFO    ] alert_management.alertManager: Alert mới: [MEDIUM] Port Scan từ 10.20.30.40
+[2026-08-19 21:28:44] [INFO    ] __main__:     📁 Đã ghi 2 alert(s) vào log
+[2026-08-19 21:28:44] [WARNING ] __main__: [CRITICAL ALERT #3] SYN Flood detected from 192.168.100.5 to 10.0.0.1 (Rule: SynFloodDetection) | Confidence: 0.95 | Detected at: 2026-08-19 21:28:54
+[2026-08-19 21:28:44] [WARNING ] __main__: [MEDIUM ALERT #4] Port Scan detected from 10.20.30.40 to 192.168.1.1 (Rule: PortScanDetection) | Confidence: 0.99 | Detected at: 2026-08-19 21:28:54
+[2026-08-19 21:28:44] [INFO    ] __main__: Đợi AI analysis và các thông báo hoàn tất...
+[2026-08-19 21:28:48] [WARNING ] ai_security.securityAnalyzer: AI không khả dụng. SecurityAnalyzer sẽ bỏ qua cho session này.
+[2026-08-19 21:28:48] [WARNING ] ai_security.securityAnalyzer: AI không khả dụng. SecurityAnalyzer sẽ bỏ qua cho session này.
+[2026-08-19 21:28:56] [INFO    ] notification.emailChannel: Email: Gửi alert #3 đến thanhtucit260325@gmail.com thành công
+[2026-08-19 21:28:58] [INFO    ] notification.emailChannel: Email: Gửi alert #1 đến thanhtucit260325@gmail.com thành công
+[2026-08-19 21:28:58] [INFO    ] report.reportExporter: TXT report: reports\rpt-20260819-212858-CD9B69.txt
+[2026-08-19 21:28:58] [INFO    ] report.reportExporter: HTML report: reports\rpt-20260819-212858-CD9B69.html
+[2026-08-19 21:28:59] [INFO    ] report.reportExporter: PDF report: reports\rpt-20260819-212858-CD9B69.pdf
+[2026-08-19 21:28:59] [INFO    ] __main__: 📄 Báo cáo TXT: reports\rpt-20260819-212858-CD9B69.txt
+[2026-08-19 21:28:59] [INFO    ] __main__: 📄 Báo cáo HTML: reports\rpt-20260819-212858-CD9B69.html
+[2026-08-19 21:28:59] [INFO    ] __main__: 📄 Báo cáo PDF: reports\rpt-20260819-212858-CD9B69.pdf
+[2026-08-19 21:28:59] [INFO    ] storage.csvFormatter: CSVFormatter: Đã đóng file
+[2026-08-19 21:28:59] [INFO    ] storage.jsonFormatter: JSONFormatter: Đã đóng file
+[2026-08-19 21:28:59] [INFO    ] storage.logger: Logger: Đã đóng tất cả formatter
+[2026-08-19 21:28:59] [INFO    ] __main__: ────────────────────────────────────────────────────────────
+[2026-08-19 21:28:59] [INFO    ] __main__:   📊 THỐNG KÊ PHIÊN LÀM VIỆC
+[2026-08-19 21:28:59] [INFO    ] __main__: ────────────────────────────────────────────────────────────
+[2026-08-19 21:28:59] [INFO    ] __main__:   Tổng thời gian chạy  : 14.8s
+[2026-08-19 21:28:59] [INFO    ] __main__:   Tổng gói tin xử lý   : 269
+[2026-08-19 21:28:59] [INFO    ] __main__:   Cửa sổ phân tích     : 1
+[2026-08-19 21:28:59] [INFO    ] __main__:   Tổng alert phát hiện : 4
+[2026-08-19 21:28:59] [INFO    ] __main__:   Critical alerts      : 2
+[2026-08-19 21:28:59] [INFO    ] __main__:   High alerts          : 0
+[2026-08-19 21:28:59] [INFO    ] __main__: ────────────────────────────────────────────────────────────

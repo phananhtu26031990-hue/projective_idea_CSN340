@@ -1,0 +1,229 @@
+Network Traffic
+        |
+        |
+        v
++----------------------+
+|   PacketCapture      |
++----------------------+
+        |
+        |
+        | Raw Packet
+        |
+        v
++----------------------+
+|   PacketParser       |
++----------------------+
+        |
+        |
+        | Convert
+        |
+        v
++----------------------+
+|       Packet         |
++----------------------+
+
+        |
+        |
+        v
+
++----------------------+
+|  TrafficAnalyzer     |
++----------------------+
+
+Responsibilities:
+- Receive Packet
+- Create Traffic Window
+- Manage Time Window
+
+        |
+        |
+        |
+        v
+
++----------------------+
+|       Traffic        |
++----------------------+
+
+Contains:
+- packets : List<Packet>
+- startTime
+- endTime
+- totalPackets
+- totalByte
+- sourceIps
+- destinationIps
+
+
+        |
+        |
+        v
+
++----------------------+
+|     RuleEngine       |
++----------------------+
+
+Analyze:
+
+analyze(traffic)
+
+
+        |
+        |
+        v
+
+
+        +--------------------------------+
+        |        Rule Interface          |
+        +--------------------------------+
+
+                 |
+                 |
+     -----------------------------------------------------
+     |              |               |                   |
+     v              v               v                   v
+
+ SynFlood       AckFlood       PortScan           ICMPTunneling
+                                           
+
+
+                 
+
+        |
+        |
+        v
+
+
++----------------------+
+|        Alert         |
++----------------------+
+
+Create detection result:
+
+- attackType
+- sourceIp
+- severity
+- confidence
+- description
+
+
+        |
+        |
+        v
+
+
++----------------------+
+|    AlertManager      |
++----------------------+
+
+Manage:
+
+- listAlert
+- alertCount
+
+
+        |
+        |
+        |
+        +-----------------------------+
+        |                             |
+        |                             |
+        v                             v
+
+
++----------------+          +----------------------+
+|    Logger      |          | SecurityAnalyzer     |
++----------------+          +----------------------+
+
+Store Evidence             AI Analysis
+
+
+        |                             |
+        |                             |
+        v                             v
+
+
++----------------+          +----------------------+
+| LogFormatter   |          |      AIResult        |
++----------------+          +----------------------+
+
+        |                    Output:
+        |                    - riskLevel
+        |                    - confidence
+        |
+        |
+ ---------------------
+ |          |          |
+ v          v          v
+
+CSV      JSON      Database
+
+
+        |
+        |
+        |
+        +-----------------------------+
+                                      |
+                                      v
+
+
+                          +----------------------+
+                          |       Report         |
+                          +----------------------+
+
+                          Contains:
+
+                          - Alert
+                          - AIResult
+                          - Statistics
+
+
+                                      |
+                                      |
+                                      v
+
+
+                          +----------------------+
+                          |  ReportExporter      |
+                          +----------------------+
+
+                                      |
+                    --------------------------------
+                    |              |               |
+                    v              v               v
+
+
+                  PDF            TXT            HTML
+
+
+
+                                      |
+                                      |
+                                      v
+
+
+                          +----------------------+
+                          | NotificationManager  |
+                          +----------------------+
+
+                                      |
+                                      |
+                          NotificationChannel
+
+                                      |
+                    --------------------------------
+                    |                              |
+                    v                              v
+
+
+              TelegramChannel                EmailChannel
+
+
+ / nên chạy song song để tránh bị lỗi Lý do:
+Nếu AI lỗi:
+    Ollama chết.
+    Model lỗi.
+    RAM thiếu.
+Bạn vẫn còn log.
+
+Trong Security:
+Log là bằng chứng, AI chỉ là công cụ hỗ trợ./ 

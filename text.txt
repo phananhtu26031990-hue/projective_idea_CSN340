@@ -1,0 +1,231 @@
+PacketCapture
+
+- interface : string
+- filter : string
+---
++ startCapture()
++ stopCapture()
+
+
+PacketParser
++ parse(rawPacket) : Packet
+
+
+TrafficAnalyzer
+- currentTraffic : Traffic
+- windowSize : int                      // cứ koản bao nhiêu giây thì bắt gói 
+- trafficHistory : List<Traffic>        // Lưu các Traffic đã đóng để phân tích lịch sử/AI
+--
++ processPacket(packet : Packet) : void
++ isWindowExpired() : bool
++ createNewTraffic() : Traffic
++ getCurrentTraffic() : Traffic
++ closeTraffic() : Traffic
+
+
+Packet
+- id : int
+- timestamp : datetime
+- srcIp : string
+- dstIp : string
+- srcPort : int
+- dstPort : int
+- protocol : string
+- tcpFlags : List<string>
+- length : int
+- srcMac : string
+- dstMac : string
+- ttl : int
+- payload : bytes
+- interface : string
+--
++ getSummary() : string
++ isTCP() : bool
++ isUDP() : bool
++ isICMP() : bool
++ toDictionary() : dict
+
+
+
+Traffic
+- packets : List<Packet>
+- totalPackets : int
+- totalByte : int
+- sourceIps : List<string>
+- destinationIps : List<string>
+- startTime : datetime
+- endTime : datetime
+--
++ addPacket(packet) : void
++ calculateRate() : float
++ getStatistics() : 
+
+
+
+RuleEngine
+- rules : List<Rule>   
+--
++ addRule(rule : Rule) : void
++ getRules() : List<Rule>
++ analyze(traffic : Traffic) : List<Alert>
+
+<< interface >>Rules
+--
++ detect(traffic : Traffic) : Alert
++ getName() : string
+
+// implements Rules
+AckFlood                             
+- threshold : int
+--
++ detect(traffic : Traffic) : Alert
+
+SynFlood                             
+- threshold : int
+--
++ detect(traffic : Traffic) : Alert
+
+ICMPTunnel                             
+- threshold : int
+--
++ detect(traffic : Traffic) : Alert
+
+PortScan                            
+- threshold : int
+--
++ detect(traffic : Traffic) : Alert
+
+
+
+Alert
+- id : int
+- ruleName : string
+- attackType : string
+- sourceIp : string
+- destinationIp : string
+- severity : string ( rủi ro )
+- confidence : float ( độ tin cậy)
+- timestamp : datetime
+- description : string
+--
++ getMessage() : string
++ toDictionary() : dict
+
+
+
+( AlertMananger controls alerts )
+AlertManager
+- listAlert : List<Alert>
+- alertCount : int
+--
++ addAlert(alert : Alert) : void
++ getAlerts() : List<Alert>
++ getAlertCount() : int
++ clearAlerts() : void
+
+
+Logger
+- formatter : LogFormatter
+--
++ saveAlert(alert : Alert)
++ saveTraffic(traffic : Traffic)
++ writeLog(data : dict)
+
+
+
+<<interface>>LogFormatter
++ write(data : dict) : void
+
+
+CSVFormatter
+implements LogFormatter
+--
++ write(data : dict) : void
+
+
+JSONFormatter
+
+implements LogFormatter
+--
++ write(data : dict) : void
+
+
+DatabaseFormatter
+implements LogFormatter
+--
++ write(data : dict)
+
+
+
+<<interface>>ReportExporter
++ export(data : dict) : file
+
+
+PDFExporter
+implements ReportExporter
+--
++ export(data : dict) : file
+
+HTMLExporter
+implements ReportExporter
+--
++ export(data : dict) : file
+
+TxtExporter
+implements ReportExporter
+--
++ export(data : dict) : file
+
+
+
+SecurityAnalyzer
+- model : object
+- threshold : float
+---
++ analyze(alerts : List<Alert>) : AIResult
++ generateInsight(data : dict) : string
+
+
+AIResult
+- riskLevel : string
+- confidence : float
+- explanation : string
+- recommendation : string
+- timestamp : datetime
+--
++ toDictionary() : dict
+
+
+
+
+NotificationManager
+- channels : List<NotificationChannel>
+--
++ addChannel(channel : NotificationChannel) : void
++ send(alert : Alert) : void
++ sendReport(report : Report) : void
+
+
+<<interface> NotificationChannel
++ send(message : string) : void
+
+
+TelegramChannel
+implements NotificationChannel
+--
++ send(message : string) : void
+
+EmailChannel
+implements NotificationChannel
+--
++ send(message : string) : void
+
+
+ConfigManager               
+ - configPath : string                    
+ - configData : dict   
+ --                   
+ + loadConfig() : dict                    
+ + getRuleThreshold(ruleName) : float     
+
+

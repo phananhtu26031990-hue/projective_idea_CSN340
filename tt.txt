@@ -1,0 +1,17 @@
+file-> packetCapture:
+- 2 luồng:
+ + 1: sử lý gói tin được bắt trên card mạng ( real time )
+     . Để sử lý được gói tin trên card mạng ( interface : WIFI , Ethernet):
+	+ bắt gối dữ liệu chính xác tránh bị overload. sử dụng A Berkeley Packet Filter (BPF) is an operating system tool that captures and filters network packets like "TCP", "UDP", "IP","Port"...
+	+ isCapturing : bool  
+      
+      . startCapture :
+	+ 
+
+
+
+ + 2: sử lý offlice through file.pcap or .npcap 
+
+
+#callback pattern: 
+# 

@@ -1,0 +1,172 @@
+NetworkSentinelAI
+
+│
+├── 1. Capture Layer
+│
+│   ├── PacketCapture
+│   │
+│   ├── PyShark Adapter
+│   │
+│   └── Npcap Interface
+│
+│
+├── 2. Parsing Layer
+│
+│   ├── PacketParser
+│   │
+│   └── Convert:
+│          Raw Packet
+│              ↓
+│          Packet Object
+│
+│
+├── 3. Data Model Layer
+│
+│   ├── Packet   # Lưu thông tin 1 gói tin
+|   |   |__ __init__()
+|   |   |__ getSummary()
+|   |   |__ isTCP()    # Kiểm tra gói tin có phải TCP không
+|   |   |__ isUDP()    # Kiểm tra gói tin có phải UDP không
+|   |   |__ isICMP()   # Kiểm tra gói tin có phải ICMP không
+|   |   |__ toDictionary() # Chuyển packet thành dictionary
+│   │
+│   ├── Traffic  # Lưu nhiều gói tin trong 1 khoảng thời gian
+|   |   |__ __init__()
+|   |   |__ addPacket() # Thêm packet mới vào traffic
+|   |   |      │
+|   |   │      └── thêm packet mới
+│   │   │
+│   │   ├── getDuration() # Tính khoảng thời gian của traffic
+│   │   │      │
+│   │   │      └── tính khoảng thời gian
+│   │   │
+│   │   ├── calculateRate() # Tính packet/second
+│   │   │      │
+│   │   │      ├── gọi getDuration()
+│   │   │      └── tính packet/second
+│   │   │
+│   │   ├── calculateByteRate() # Tính byte/second
+│   │   │      │
+│   │   │      ├── gọi getDuration()
+│   │   │      └── tính byte/second
+│   │   │
+│   │   └── getStatistics() # Tính toán tổng hợp số liệu thống kê
+│   │          │
+│   │          ├── gọi getDuration()
+│   │          ├── gọi calculateRate()
+│   │          ├── gọi calculateByteRate()
+│   │          └── tổng hợp tất cả thành dict   
+│   │
+│   ├── Alert
+│   │
+│   ├── Report
+│   │
+│   └── AIResult
+│
+│
+├── 4. Traffic Processing Layer
+│
+│   ├── TrafficAnalyzer
+│   │
+│   ├── currentTraffic : Traffic
+│   │
+│   ├── windowSize
+│   │
+│   └── trafficHistory
+│
+│
+├── 5. Detection Layer
+│
+│   ├── RuleEngine
+│   │
+│   ├── Rule Interface
+│   │
+│   └── Rules
+│       │
+│       ├── SynFlood
+│       │
+│       ├── AckFlood
+│       │
+│       ├── PortScan
+│       │
+│       └── ICMPTunnel
+│
+│
+├── 6. Alert Management Layer
+│
+│   ├── AlertManager
+│   │
+│   ├── Alert Collection
+│   │
+│   └── Alert Lifecycle
+│
+│
+├── 7. Storage Layer
+│
+│   ├── Logger
+│   │
+│   ├── LogFormatter Interface
+│   │
+│   ├── CSVFormatter
+│   │
+│   ├── JSONFormatter
+│   │
+│   └── DatabaseFormatter
+│
+│
+├── 8. AI Security Layer
+│
+│   ├── SecurityAnalyzer
+│   │
+│   ├── Local AI Model
+│   │       |
+│   │       └── Ollama
+│   │
+│   └── AIResult
+│
+│
+├── 9. Report Layer
+│
+│   ├── ReportGenerator
+│   │
+│   ├── PDF Export
+│   │
+│   ├── TXT Export
+│   │
+│   └── CSV Export
+│
+│
+├── 10. Notification Layer
+│
+│   ├── NotificationManager
+│   │
+│   ├── NotificationChannel Interface
+│   │
+│   ├── TelegramNotification
+│   │
+│   ├── EmailNotification
+│   │
+│   └── WebhookNotification
+│
+│
+├── 11. Configuration Layer
+│
+│   ├── config.yaml
+│   │
+│   └── Threshold
+│
+│
+├── 12. Utility Layer
+│
+│   └── Helper Functions
+│
+│
+├── logs/
+│
+├── reports/
+│
+├── tests/
+│
+├── requirements.txt
+│
+└── README.md

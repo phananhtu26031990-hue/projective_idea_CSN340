@@ -1,0 +1,60 @@
+# File cấu hình YAML cho hệ thống NetworkSentinelAI
+# Đây là file định nghĩa các tham số chạy của ứng dụng, giúp bạn dễ dàng thay đổi mà không cần chỉnh sửa mã nguồn.
+# 1. Cấu hình Layer Capture (Thu thập gói tin)
+capture:
+  # ── CHỌN INTERFACE ─────────────────────────────────────────────────────────
+  # Chạy: & "C:\Program Files\Wireshark\tshark.exe" -D   để xem danh sách
+  # Card mạng đang hoạt động trên máy này:
+  #   5. WiFi        ← Đang kết nối mạng (dùng cái này để monitor traffic thật)
+  #   8. Ethernet 2  ← VirtualBox Host-Only
+  #  10. Loopback    ← Capture localhost (dùng để test)
+  interface: "WiFi"              # ← Card WiFi đang hoạt động (đổi sang "Ethernet 2" nếu cần)
+  filter: "ip"                    # Bộ lọc Wireshark (BPF filter), "ip" nghĩa là chỉ lấy các gói tin IPv4/IPv6
+
+# 2. Cấu hình Layer Traffic (Phân tích lưu lượng mạng)
+traffic:
+  window_size: 10                 # Kích thước cửa sổ thời gian (tính bằng giây) để gom nhóm gói tin thành traffic flow
+
+# 3. Cấu hình ngưỡng (Threshold) phát hiện cho Rule Engine
+# Các luật sẽ lấy các giá trị này để so sánh và phát hiện tấn công
+rules:
+  syn_flood:
+    threshold: 100.0              # Số lượng gói SYN tối đa từ 1 IP trong 1 chu kỳ cửa sổ (giây)
+  ack_flood:
+    threshold: 150.0              # Số lượng gói ACK tối đa từ 1 IP trong 1 chu kỳ cửa sổ (giây)
+  port_scan:
+    threshold: 50.0               # Số lượng port khác nhau bị quét từ 1 IP nguồn trong 1 chu kỳ
+  icmp_tunnel:
+    threshold: 30.0               # Số lượng gói ICMP tối đa cho phép trong 1 chu kỳ cửa sổ
+
+# 4. Cấu hình AI Security Layer (Phần tích chuyên sâu bằng Trí tuệ nhân tạo)
+security_analyzer:
+  model: "llama2"                 # Tên mô hình AI được sử dụng thông qua Ollama
+  threshold: 0.85                 # Ngưỡng tin cậy (confidence score) tối thiểu từ AI để đưa ra quyết định cảnh báo
+
+# 5. Cấu hình Storage Layer (Ghi nhật ký hệ thống)
+logging:
+  formatters:
+    csv:
+      enabled: true
+      path: "logs/alerts.csv"
+    json:
+      enabled: true
+      path: "logs/alerts.json"
+    database:
+      enabled: false
+      connection_string: "sqlite:///logs/sentinel.db"
+
+# 6. Cấu hình Notification Layer (Kênh thông báo tức thời)
+notifications:
+  telegram:
+    enabled: false
+    token: "YOUR_TELEGRAM_BOT_TOKEN"
+    chat_id: "YOUR_CHAT_ID"
+  email:
+    enabled: true
+    smtp_server: "smtp.gmail.com"
+    port: 587
+    sender: "thanhtucit260325@gmail.com"
+    receiver: "thanhtucit260325@gmail.com"
+    password: "dobi fgua jtga avym"

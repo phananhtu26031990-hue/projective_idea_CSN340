@@ -1,0 +1,5 @@
+pyshark>=0.6
+pandas>=2.0
+requests>=2.31
+reportlab>=4.0
+pyyaml>=6.0
